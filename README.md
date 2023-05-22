@@ -72,7 +72,6 @@ nginx.nginx-test.svc.clusterset.local. 5 IN A	242.0.255.253
 ;; MSG SIZE  rcvd: 131
 
 bash-5.0# curl nginx.nginx-test.svc.clusterset.local:8080
-
-
+curl: (28) Failed to connect to nginx.nginx-test.svc.clusterset.local port 8080: Operation timed out
 
 ```
