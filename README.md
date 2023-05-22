@@ -76,16 +76,7 @@ curl: (28) Failed to connect to nginx.nginx-test.svc.clusterset.local port 8080:
 
 ```
 
-
-
-$ k get nodes -o wide
-NAME                            STATUS   ROLES    AGE   VERSION   INTERNAL-IP       EXTERNAL-IP    OS-IMAGE                         KERNEL-VERSION          CONTAINER-RUNTIME
-lke109602-163536-646b6c5c12e0   Ready    <none>   60m   v1.26.3   192.168.140.182   23.239.3.112   Debian GNU/Linux 11 (bullseye)   5.10.0-21-cloud-amd64   containerd://1.6.19
-lke109602-163536-646b6c5c35c6   Ready    <none>   59m   v1.26.3   192.168.203.61    45.56.94.53    Debian GNU/Linux 11 (bullseye)   5.10.0-21-cloud-amd64   containerd://1.6.19
-lke109602-163536-646b6c5c59b8   Ready    <none>   59m   v1.26.3   192.168.203.22    45.79.94.169   Debian GNU/Linux 11 (bullseye)   5.10.0-21-cloud-amd64   containerd://1.6.19
-
-
-```
+```bash
 $ export KUBECONFIG=/home/tamal/Downloads/tamal-us-west-kubeconfig.yaml
 
 $ k get nodes -o wide
@@ -95,21 +86,21 @@ lke109602-163536-646b6c5c35c6   Ready    <none>   65m   v1.26.3   192.168.203.61
 lke109602-163536-646b6c5c59b8   Ready    <none>   65m   v1.26.3   192.168.203.22    45.79.94.169   Debian GNU/Linux 11 (bullseye)   5.10.0-21-cloud-amd64   containerd://1.6.19
 ```
 
-```
+```bash
 $ ssh root@45.79.94.169
 
 # hostname -I
 45.79.94.169 192.168.203.22 172.17.0.1 172.31.2.1 10.2.2.1 240.79.94.169 2600:3c01::f03c:93ff:feba:610e
 ```
 
-```
+```bash
 $ ssh root@23.239.3.112
 
 # hostname -I
 23.239.3.112 192.168.140.182 172.17.0.1 172.31.0.1 10.2.0.1 240.239.3.112 2600:3c01::f03c:93ff:feba:61eb 
 ```
 
-```
+```bash
 $ kubectl run -n nginx-test tmp-shell --rm -i --tty --image quay.io/submariner/nettest -- /bin/bash
 
 
